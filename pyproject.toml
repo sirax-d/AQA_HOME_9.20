@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "aqa-home-9-20"
+version = "0.1.0"
+description = "API test for Shop"
+authors = ["Krichanov Sergey <dsirax@icloud.com>"]
+readme = "README.md"
+packages = [{include = "aqa_home_9"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "6.2.4"
+requests = "2.26.0"
+selene = "2.0.0rc7"
+webdriver-manager = "4.0.1"
+curlify = "2.2.1"
+allure-pytest = "^2.13.2"
+python-dotenv = "^1.0.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
