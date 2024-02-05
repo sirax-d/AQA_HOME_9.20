@@ -1,5 +1,4 @@
 from selene import browser, have, be
-from selene.core.exceptions import TimeoutException
 
 BASE_URL = 'http://demowebshop.tricentis.com'
 
@@ -11,12 +10,8 @@ def cart_page_asserts():
 
 
 def clear_cart():
-    browser.open(BASE_URL + "/cart")
-    try:
-        browser.element("[name='removefromcart']").should(be.visible)
+    browser.open("/cart")
+    if browser.element("[name='removefromcart']").matching(be.visible):
         browser.element("[name='removefromcart']").click()
         browser.element("[name='updatecart']").click()
-        browser.element(".no-data").should(have.exact_text("Your Shopping Cart is empty!"))
-    except TimeoutException:
-        print('Cart is empty!')
-        pass
+        browser.element(".order-summary-content").should(have.exact_text("Your Shopping Cart is empty!"))

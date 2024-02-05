@@ -1,5 +1,4 @@
-from selene import browser, have, be
-import requests
+from selene import browser, have
 import os
 from dotenv import load_dotenv
 
